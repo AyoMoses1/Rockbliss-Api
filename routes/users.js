@@ -25,10 +25,10 @@ router.delete("/:id", deleteUser );
 //GET
 
 // verifyUser was used here
-router.get("/find/:id",  getUser);
+router.get("/find/:id", verifyUser, getUser);
 //GET ALL
 
-router.get("/", getUsers)
+router.get("/", verifyAdmin, getUsers)
 
 // Please remember to update the get users verifyAdmin feature later
 
