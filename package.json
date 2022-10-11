@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js --ignore './client/"
+    "start": "node index.js --ignore './client/",
+    "dev": "nodemon index.js --ignore './client/"
   },
   "keywords": [],
   "author": "",
