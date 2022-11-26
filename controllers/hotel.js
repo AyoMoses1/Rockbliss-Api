@@ -1,5 +1,6 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import mongoose from "mongoose";
 
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
@@ -86,6 +87,7 @@ export const countByType = async (req, res, next) => {
 
 export const getHotelRooms = async (req, res, next) => {
   try {
+    if( !mongoose.Types.ObjectId.isValid(req.params.id) ) return "This is not valid";
     const hotel = await Hotel.findById(req.params.id);
     const list = await Promise.all(
       hotel.rooms.map((room) => {
@@ -97,6 +99,21 @@ export const getHotelRooms = async (req, res, next) => {
     next(err);
   }
 };
+export const updateHotelAvailability = async (req, res, next) => {
+  try {
+    await Hotel.updateOne(
+      {
+        $push: {
+          "unavailableDates": req.body.dates
+        },
+      }
+    );
+    res.status(200).json("Hotel status has been updated.");
+  } catch (err) {
+    next(err);
+  }
+};
+
 
 
 

@@ -48,6 +48,9 @@ const HotelSchema = new mongoose.Schema({
       type: Boolean,
       default: false,
     },
+    unavailableDates: {
+      type: [Date]
+    }
   });
   
   export default mongoose.model("Hotel", HotelSchema)

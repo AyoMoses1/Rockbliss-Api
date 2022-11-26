@@ -36,6 +36,22 @@ export const getUsers = async (req, res, next) => {
     next(err);
   }
 };
+
+
+/*
+  const newHotel = new Hotel(req.body);
+
+  try {
+    const savedHotel = await newHotel.save();
+    res.status(200).json(savedHotel);
+  } catch (err) {
+    next(err);
+  }
+
+
+
+*/
+
 // export const getUsers = async (req, res, next) => {
 //   const { min, max, ...others } = req.query;
 //   try {
