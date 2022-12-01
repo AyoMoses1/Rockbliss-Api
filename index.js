@@ -1,13 +1,13 @@
-import express from "express";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
-import authRoute from "./routes/auth.js";
-import usersRoute from "./routes/users.js";
-import hotelsRoute from "./routes/hotels.js";
-import roomsRoute from "./routes/rooms.js";
-import customersRoute from "./routes/customer.js"
-import cookieParser from "cookie-parser";
-import cors from "cors";
+const express = require("express");
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const authRoute = require("./routes/auth.js");
+const usersRoute = require("./routes/users.js");
+const hotelsRoute = require("./routes/hotels.js");
+const roomsRoute =  require("./routes/rooms.js");
+const customersRoute = require("./routes/customer.js")
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
 dotenv.config();
@@ -52,7 +52,3 @@ app.listen(process.env.PORT || 5000, () => {
   connect()
   console.log('backend running')
 })
-// app.listen(8000, () => {
-//   connect();
-//   console.log("Connected to backend.");
-// });
